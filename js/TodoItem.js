@@ -1,6 +1,3 @@
-/// <reference path="../typings/react/react.d.ts" />
-/// <reference path="../typings/react/react-dom.d.ts" />
-/// <reference path="interfaces.d.ts" />
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -18,10 +15,7 @@ var TodoItem = (function (_super) {
         this.props.onRemove(this.props.item);
     };
     TodoItem.prototype.render = function () {
-        return (<li>
-              <span> {this.props.item.description} </span>
-              <button onClick={this.removeItem}>delete</button>
-            </li>);
+        return (React.createElement("li", null, React.createElement("span", null, " ", this.props.item.description, " "), React.createElement("button", {onClick: this.removeItem}, "delete")));
     };
     return TodoItem;
 }(React.Component));

@@ -1,9 +1,18 @@
 /// <reference path="../typings/react/react.d.ts" />
-/// <reference path="../typings/react/react-dom.d.ts" />
-/// <reference path="interfaces.d.ts" />
 
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+
+interface ITodo {
+    description: string;
+}
+
+export interface ITodoItemState {}
+
+export interface ITodoItemProps {
+    item: ITodo;
+    onRemove?: (todo: ITodo) => any;
+    key?: number; // I think this prop is unnecessary, but unless it an error occurs in tsc.
+}
 
 export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
     constructor () {
