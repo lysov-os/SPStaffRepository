@@ -20,9 +20,9 @@
         "!node_modules/**"
     ],
     "files": [        
-        "todoItem.tsx",
-        "main.tsx",
-        "bootstrap.ts"
+        "src/todoItem.tsx",
+        "src/main.tsx",
+        "src/bootstrap.ts"
     ],
     "exclude": []
 }

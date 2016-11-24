@@ -8,7 +8,9 @@
   "devDependencies": {
     "browserify": "^13.1.0",
     "gulp": "^3.9.1",
+    "gulp-spsave": "^3.0.0",
     "gulp-typescript": "^2.13.6",
+    "typescript": "^2.2.0-dev.20161115",
     "vinyl-source-stream": "^1.1.0"
   }
 }

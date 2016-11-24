@@ -4,16 +4,17 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var React = require('react');
-var todoItem_1 = require('./todoItem');
+var React = require("react");
+var todoItem_1 = require("./todoItem");
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
-        _super.call(this);
-        this.state = { newItem: { description: '' }, todoList: [] };
-        this.changeName = this.changeName.bind(this);
-        this.addItem = this.addItem.bind(this);
-        this.removeItem = this.removeItem.bind(this);
+        var _this = _super.call(this) || this;
+        _this.state = { newItem: { description: '' }, todoList: [] };
+        _this.changeName = _this.changeName.bind(_this);
+        _this.addItem = _this.addItem.bind(_this);
+        _this.removeItem = _this.removeItem.bind(_this);
+        return _this;
     }
     Main.prototype.changeName = function (e) {
         this.setState({
@@ -40,9 +41,13 @@ var Main = (function (_super) {
     Main.prototype.render = function () {
         var _this = this;
         var todoItems = this.state.todoList.map(function (item) {
-            return React.createElement(todoItem_1.TodoItem, {key: item.key, item: item, onRemove: _this.removeItem});
+            return React.createElement(todoItem_1.TodoItem, { key: item.key, item: item, onRemove: _this.removeItem });
         });
-        return (React.createElement("div", null, React.createElement("div", null, React.createElement("input", {type: "text", placeholder: "input new item", value: this.state.newItem.description, onChange: this.changeName}), React.createElement("button", {onClick: this.addItem}, "add")), React.createElement("ul", null, todoItems)));
+        return (React.createElement("div", null,
+            React.createElement("div", null,
+                React.createElement("input", { type: "text", placeholder: "input new item", value: this.state.newItem.description, onChange: this.changeName }),
+                React.createElement("button", { onClick: this.addItem }, "add")),
+            React.createElement("ul", null, todoItems)));
     };
     return Main;
 }(React.Component));

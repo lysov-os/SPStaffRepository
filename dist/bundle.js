@@ -1,51 +1,28 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var React = require('react');
-var TodoItem = (function (_super) {
-    __extends(TodoItem, _super);
-    function TodoItem() {
-        _super.call(this);
-        this.removeItem = this.removeItem.bind(this);
-    }
-    TodoItem.prototype.removeItem = function () {
-        this.props.onRemove(this.props.item);
-    };
-    TodoItem.prototype.render = function () {
-        return (React.createElement("li", null, React.createElement("span", null, " ", this.props.item.description, " "), React.createElement("button", {onClick: this.removeItem}, "delete")));
-    };
-    return TodoItem;
-}(React.Component));
-exports.TodoItem = TodoItem;
-
-},{"react":174}],2:[function(require,module,exports){
-"use strict";
-var React = require('react');
-var ReactDOM = require('react-dom');
-var main_1 = require('./main');
+var React = require("react");
+var ReactDOM = require("react-dom");
+var main_1 = require("./main");
 ReactDOM.render(React.createElement(main_1.Main), document.getElementById('main'));
 
-},{"./main":3,"react":174,"react-dom":30}],3:[function(require,module,exports){
+},{"./main":2,"react":174,"react-dom":30}],2:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var React = require('react');
-var todoItem_1 = require('./todoItem');
+var React = require("react");
+var todoItem_1 = require("./todoItem");
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
-        _super.call(this);
-        this.state = { newItem: { description: '' }, todoList: [] };
-        this.changeName = this.changeName.bind(this);
-        this.addItem = this.addItem.bind(this);
-        this.removeItem = this.removeItem.bind(this);
+        var _this = _super.call(this) || this;
+        _this.state = { newItem: { description: '' }, todoList: [] };
+        _this.changeName = _this.changeName.bind(_this);
+        _this.addItem = _this.addItem.bind(_this);
+        _this.removeItem = _this.removeItem.bind(_this);
+        return _this;
     }
     Main.prototype.changeName = function (e) {
         this.setState({
@@ -72,15 +49,49 @@ var Main = (function (_super) {
     Main.prototype.render = function () {
         var _this = this;
         var todoItems = this.state.todoList.map(function (item) {
-            return React.createElement(todoItem_1.TodoItem, {key: item.key, item: item, onRemove: _this.removeItem});
+            return React.createElement(todoItem_1.TodoItem, { key: item.key, item: item, onRemove: _this.removeItem });
         });
-        return (React.createElement("div", null, React.createElement("div", null, React.createElement("input", {type: "text", placeholder: "input new item", value: this.state.newItem.description, onChange: this.changeName}), React.createElement("button", {onClick: this.addItem}, "add")), React.createElement("ul", null, todoItems)));
+        return (React.createElement("div", null,
+            React.createElement("div", null,
+                React.createElement("input", { type: "text", placeholder: "input new item", value: this.state.newItem.description, onChange: this.changeName }),
+                React.createElement("button", { onClick: this.addItem }, "add")),
+            React.createElement("ul", null, todoItems)));
     };
     return Main;
 }(React.Component));
 exports.Main = Main;
 
-},{"./todoItem":1,"react":174}],4:[function(require,module,exports){
+},{"./todoItem":3,"react":174}],3:[function(require,module,exports){
+"use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var React = require("react");
+var TodoItem = (function (_super) {
+    __extends(TodoItem, _super);
+    function TodoItem() {
+        var _this = _super.call(this) || this;
+        _this.removeItem = _this.removeItem.bind(_this);
+        return _this;
+    }
+    TodoItem.prototype.removeItem = function () {
+        this.props.onRemove(this.props.item);
+    };
+    TodoItem.prototype.render = function () {
+        return (React.createElement("li", null,
+            React.createElement("span", null,
+                " ",
+                this.props.item.description,
+                " "),
+            React.createElement("button", { onClick: this.removeItem }, "delete")));
+    };
+    return TodoItem;
+}(React.Component));
+exports.TodoItem = TodoItem;
+
+},{"react":174}],4:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -20841,4 +20852,4 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":56}]},{},[2]);
+},{"./lib/React":56}]},{},[1]);
